@@ -1,20 +1,25 @@
+var firstclick = false;
 var buttonColors = ["red", "blue", "green", "yellow"];
 var gamePattern = [];
 var userClickedPattern = [];
 var started = false;
 var level = 0;
+if(firstclick == false)
+{
    $(".btn").click(function()
-  {
+  { 
     var userChosenColor = $(this).attr("id");
     userClickedPattern.push(userChosenColor);
     checkanswer(userClickedPattern.length-1);
       playSound(userChosenColor);
+firstclick =true;
 
    
   });
-
+}
 function nextSequence()
 {
+firstclick =false;
 userClickedPattern = [];
   level++;
     var randomnumber = Math.floor(Math.random()*4);
